@@ -1,0 +1,4 @@
+*.pyc
+*.pylintrc
+__pycache__
+vscode
