@@ -23,9 +23,11 @@ class Robot:
     def run(self):
         while True:
             candidate = self.direct()
-            if self.can_move(candidate):
-                self.direction = candidate  
-                self.move()
+            self.direction = candidate  
+            self.move()
+            #if self.can_move(candidate):
+            #    self.direction = candidate  
+            #    self.move()
             if self.cleaned_number == self.square:
                 break
         print(self.maps)
@@ -73,7 +75,7 @@ class Robot:
             self.x -= 1
         if self.direction == 3:
             self.y -= 1
-        print(self.cleaned_number, self.direction, self.x, self.y, self.maps)
+        #print(self.cleaned_number, self.direction, self.x, self.y, self.maps)
         if (self.maps[self.x][self.y] == 0):
             self.cleaned_number += 1
             self.maps[self.x][self.y] = 1
@@ -85,9 +87,9 @@ def main():
         [0, 0, 0, 0],
         [0, 0, 0, 0],
         [0, 0, 0, 0],
-        [0, 0, -1, -1],
+        [0, 0, 0, 0],
     ]
-    robot = Robot(maps, 14, 0, 1, 1)
+    robot = Robot(maps, 16, 0, 1, 1)
     robot.run()
 
 if __name__ == "__main__":
