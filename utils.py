@@ -1,4 +1,10 @@
 from random import randint
+
+"""
+Map is a two dimension matrix.
+O: robot can move
+-1: robot can not move
+"""
 def generate_map_random(cols, rows, obstacles_no):
     maps = []
     for j in range(rows):
