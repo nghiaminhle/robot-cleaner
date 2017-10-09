@@ -1,7 +1,7 @@
 from random import randint
 
 
-class Robot:
+class BuffaloRobot:
     maps = None
     x = 0
     y = 0
@@ -78,14 +78,14 @@ class Robot:
             self.maps[self.y][self.x] += 1
 
 
-def generate_map_random(cols, rows, stop_no):
+def generate_map_random(cols, rows, barrier_no):
     maps = []
     for j in range(rows):
         r = []
         for i in range(cols):
             r.append(0)
         maps.append(r)
-    for k in range(stop_no):
+    for k in range(barrier_no):
         i = randint(0, rows - 1)
         j = randint(0, cols - 1)
         maps[i][j] = -1
@@ -97,7 +97,12 @@ def main():
     rows = 10
     stop_no = 10
     maps = generate_map_random(cols, rows, stop_no)
-    robot = Robot(maps, (cols * rows - stop_no), 0, 1, 1)
+    print('maps:')
+    for i in range(rows):
+        print(maps[i])
+    
+    print('---------------')
+    robot = BuffaloRobot(maps, (cols * rows - stop_no), 0, 1, 1)
     robot.run()
 
     cleaned_number = 0
