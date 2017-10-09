@@ -43,5 +43,4 @@ class SweeperBFS(Sweeper):
 
         path = self.get_path(from_position, target_position, previous)
         
-        
         return path, target_position
