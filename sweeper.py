@@ -20,7 +20,7 @@ class Sweeper:
                 break
             self.move_robot(path)
             start_position = uncleaned_position
-            print_progress_matrix(self.maps)
+            #print_progress_matrix(self.maps)
     
     def move_robot(self, path):
          while len(path)>0:

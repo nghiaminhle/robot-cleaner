@@ -1,4 +1,4 @@
-from utils import generate_map_random, generate_map_random_for_test, print_matrix, print_progress_matrix
+from utils import generate_map_random
 from robot import Robot
 from position import Position
 from sweeper_bfs import SweeperBFS
