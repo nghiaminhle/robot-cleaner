@@ -47,3 +47,15 @@ class Sweeper:
 
     def find_path(self, maps, from_position: Position):
         return None, None
+    
+    def get_path(self, from_position, to_position, previous_log):
+        path = []
+        if to_position != None:
+            pos = to_position.pos()
+            path.append(to_position)
+            while pos in previous_log.keys():
+                previous_position = previous_log[pos]
+                pos = previous_position.pos()
+                if previous_position.x != from_position.x or previous_position.y != from_position.y:
+                    path.append(previous_position)
+        return path

@@ -40,14 +40,19 @@ class SweeperBFS(Sweeper):
                 if position.y > 0 and maps[position.y - 1][position.x] >= 0 and not pos.pos() in visited.keys():
                     adj_queue.put(pos)
                     previous[pos.pos()] = position
+                    
+        path = self.get_path(from_position, target_position, previous)
+        
+        return path, target_position
+
+    def get_path(self, from_position, to_position, previous_log):
         path = []
-        if target_position != None:
-            pos = target_position.pos()
-            path.append(target_position)
-            while pos in previous.keys():
-                previous_position = previous[pos]
+        if to_position != None:
+            pos = to_position.pos()
+            path.append(to_position)
+            while pos in previous_log.keys():
+                previous_position = previous_log[pos]
                 pos = previous_position.pos()
                 if previous_position.x != from_position.x or previous_position.y != from_position.y:
                     path.append(previous_position)
-        
-        return path, target_position
+        return path

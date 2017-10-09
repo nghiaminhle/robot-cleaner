@@ -37,14 +37,7 @@ class SweeperDFS(Sweeper):
                 if position.y > 0 and maps[position.y - 1][position.x] >= 0 and not pos.pos() in visited.keys():
                     adj_stack.append(pos)
                     previous[pos.pos()] = position
-        path = []
-        if target_position != None:
-            pos = target_position.pos()
-            path.append(target_position)
-            while pos in previous.keys():
-                previous_position = previous[pos]
-                pos = previous_position.pos()
-                if previous_position.x != from_position.x or previous_position.y != from_position.y:
-                    path.append(previous_position)
-        
+
+        path = self.get_path(from_position, target_position, previous)
+    
         return path, target_position
