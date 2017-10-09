@@ -1,25 +1,25 @@
 from random import randint
-def generate_map_random(cols, rows, barrier_no):
+def generate_map_random(cols, rows, obstacles_no):
     maps = []
     for j in range(rows):
         r = []
         for i in range(cols):
             r.append(0)
         maps.append(r)
-    for k in range(barrier_no):
+    for k in range(obstacles_no):
         i = randint(0, rows - 1)
         j = randint(0, cols - 1)
         maps[i][j] = -1
     return maps
 
-def generate_map_random_for_test(cols, rows, barrier_no):
+def generate_map_random_for_test(cols, rows, obstacles_no):
     maps = []
     for j in range(rows):
         r = []
         for i in range(cols):
             r.append(1)
         maps.append(r)
-    for k in range(barrier_no):
+    for k in range(obstacles_no):
         i = randint(0, rows - 1)
         j = randint(0, cols - 1)
         maps[i][j] = -1
