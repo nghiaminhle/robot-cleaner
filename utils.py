@@ -1,3 +1,4 @@
+import random
 from random import randint
 
 """
@@ -7,16 +8,22 @@ O: robot can move
 """
 def generate_map_random(cols, rows, obstacles_no):
     maps = []
+    temp = []
+    for i in range(cols*rows):
+        temp.append(0)
+    for i in range(obstacles_no):
+        temp[i] = -1
+    random.shuffle(temp)
+    observed_map = []
     for j in range(rows):
         r = []
+        s = []
         for i in range(cols):
-            r.append(0)
+            r.append(temp[j*cols+i])
+            s.append(-1)
+        observed_map.append(s)
         maps.append(r)
-    for k in range(obstacles_no):
-        i = randint(0, rows - 1)
-        j = randint(0, cols - 1)
-        maps[i][j] = -1
-    return maps
+    return maps, observed_map
 
 def generate_map_random_for_test(cols, rows, obstacles_no):
     maps = []
